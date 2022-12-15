@@ -1,0 +1,64 @@
+GameField = ['N1', 'N2', 'N3', 'N4', 'N5', 'N6', 'N7', 'N8', 'N9']
+
+def PrintField(gamefield):
+print("\n")
+print(" \t 0 1 2")
+print("0\t ",gamefield[0]," ",gamefield[1]," ",gamefield[2])
+print("1\t ",gamefield[3]," ",gamefield[4]," ",gamefield[5])
+print("2\t ",gamefield[6]," ",gamefield[7]," ",gamefield[8])
+print("\n")
+
+
+Counter = 0
+
+def CheckGame(gamefield):
+if gamefield[0] == gamefield[1] and gamefield[1] == gamefield[2]:
+print ("Игра окончена")
+return False
+elif gamefield[0] == gamefield[3] and gamefield[3] == gamefield[6]:
+print ("Игра окончена")
+return False
+elif gamefield[0] == gamefield[4] and gamefield[4] == gamefield [8]:
+print ("Игра окончена")
+return False
+elif gamefield[1] == gamefield[4] and gamefield[4] == gamefield[7]:
+print ("Игра окончена")
+return False
+elif gamefield[2] == gamefield[8] and gamefield[8] == gamefield[5]:
+print ("Игра окончена")
+return False
+elif gamefield[2] == gamefield[4] and gamefield[4] == gamefield[6]:
+print ("Игра окончена")
+return False
+elif gamefield[3] == gamefield[4] and gamefield[4] == gamefield[5]:
+print ("Игра окончена")
+return False
+elif gamefield[6] == gamefield[7] and gamefield[7] == gamefield[8]:
+print ("Игра окончена")
+return False
+
+while Counter < 9:
+PrintField(GameField)
+print("Выберите ячейку (X): ")
+step = int(input())
+if (GameField[step] == 'X' or GameField[step] == 'O' or step < 0 or step > 8):
+print("Выберите другую ячейку: ")
+step = int(input())
+Counter += 1
+GameField[step] = 'X'
+if CheckGame(GameField) == False:
+break
+PrintField(GameField)
+print("Выберите ячейку (O): ")
+step = int(input())
+if (GameField[step] == 'X' or GameField[step] == 'O' or step < 0 or step > 8):
+print("Выберите другую ячейку: ")
+step = int(input())
+Counter += 1
+GameField[step] = 'O'
+if CheckGame(GameField) == False:
+break
+if CheckGame(GameField) == True:
+print("Игра закончена ничьей")
+
+PrintField(GameField)
